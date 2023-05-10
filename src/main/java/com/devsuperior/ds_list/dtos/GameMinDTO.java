@@ -1,10 +1,12 @@
 package com.devsuperior.ds_list.dtos;
 
 import com.devsuperior.ds_list.entity.Game;
+import com.devsuperior.ds_list.projection.GameMinProjection;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.BeanUtils;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -23,5 +25,13 @@ public class GameMinDTO {
         this.year = entity.getYear();
         this.imgUrl = entity.getImgUrl();
         this.shortDescription = entity.getShortDescription();
+    }
+
+    public GameMinDTO(GameMinProjection projection){
+        id = projection.getId();
+        title = projection.getTitle();
+        year = projection.getYear();
+        imgUrl = projection.getImgUrl();
+        shortDescription = projection.getShortDescription();
     }
 }

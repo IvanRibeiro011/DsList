@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.Hibernate;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 
@@ -13,7 +14,8 @@ import java.util.Objects;
 @Setter
 @ToString
 @Entity(name = "tb_game")
-public class Game {
+public class Game implements Serializable {
+    private static final Long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
